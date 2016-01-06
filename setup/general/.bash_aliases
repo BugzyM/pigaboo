@@ -1,0 +1,1 @@
+alias run_server='/home/vagrant/env/bin/python /vagrant/manage.py runserver 0.0.0.0:8000'
