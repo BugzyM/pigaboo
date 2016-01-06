@@ -1,0 +1,724 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Real time chat</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    
+    <link href="/static/vendroid_html/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendroid_html/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/static/vendroid_html/css/font-entypo.css" rel="stylesheet" type="text/css">    
+
+    <link href="/static/vendroid_html/css/fonts.css"  rel="stylesheet" type="text/css">
+
+    <link href="/static/vendroid_html/css/theme.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendroid_html/css/chrome.css" rel="stylesheet" type="text/chrome">  
+
+    <link href="/static/vendroid_html/css/theme-responsive.min.css" rel="stylesheet" type="text/css"> 
+</head>    
+
+<body id="skin" class="boxed-layout  nav-right-hide nav-right-start-hide  nav-top-fixed background-3 nav-left-medium  enlarge-left-to-medium  responsive    clearfix" data-active="skin "  data-smooth-scrolling="1">     
+<div class="vd_body">
+<!-- Header Start -->
+  <header class="header-1" id="header">
+      <div class="vd_top-menu-wrapper">
+        <div class="container vd_bg-dark-blue  menu-search-style-2">
+          <div class="vd_top-nav vd_nav-width  ">
+          <div class="vd_panel-header">
+          	<div class="logo">
+            	<a><span style="font-family: Lobster; font-size: 20px; color:#ebebeb">Chat
+              <span style="font-size: 20px; font-weight:bold; color:#C4DA64">MatriX</span></a>
+            </div>
+            <!-- logo -->
+            
+            <div class="vd_panel-menu left-pos visible-sm visible-xs">
+                                 
+                        <span class="menu" data-action="toggle-navbar-left">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </span>  
+                            
+                              
+            </div>
+            <div class="vd_panel-menu visible-sm visible-xs">
+                	<span class="menu visible-xs" data-action="submenu">
+	                    <i class="fa fa-bars"></i>
+                    </span>        
+                          
+                        <span class="menu visible-sm visible-xs" data-action="toggle-navbar-right">
+                            <i class="fa fa-comments"></i>
+                        </span>                   
+            </div>                                     
+            <!-- vd_panel-menu -->
+          </div>
+          <!-- vd_panel-header -->
+            
+          </div>    
+          <div class="vd_container">
+          	<div class="row">
+            	<div class="col-sm-5 col-xs-12">
+            		
+                </div>
+                <div class="col-sm-7 col-xs-12">
+              		<div class="vd_mega-menu-wrapper">
+                    	<div class="vd_mega-menu pull-right">
+            				<ul class="mega-ul">
+    <li id="top-menu-1" class="one-icon mega-li"> 
+      <a href="/static/vendroid_html/index.html" class="mega-link" data-action="click-trigger">
+    	<span class="mega-icon"><i class="fa fa-users"></i></span> 
+		<span class="badge vd_bg-red">0</span>        
+      </a>
+      <div class="vd_mega-menu-content width-xs-3 width-sm-4 width-md-5 right-xs left-sm" data-action="click-target">
+        <div class="child-menu">  
+           <div class="title"> 
+           	   Friend Requests
+               
+           </div>                 
+		   <div class="content-grid column-xs-2 column-sm-3 height-xs-4">	
+           <div data-rel="scroll">
+		       {% if profiles %}
+               <ul class="list-wrapper">
+   				    {% for profile in profiles %}
+                    <li> <a href="#"> 
+                    		<div class="menu-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar.jpg"></div> 
+                         </a>
+                        <div class="menu-text"> {{ profile.firstname }}
+                            <div class="menu-info">
+                                <div class="menu-date">Newtown</div>                                                                         
+                                <div class="menu-action">
+								<a href="?accept=2">
+                                    <span class="menu-action-icon vd_green vd_bd-green" data-original-title="Approve" data-toggle="tooltip" data-placement="bottom">
+                                        <i class="fa fa-check"></i>
+                                    </span> 
+								</a>	
+								<a href="?reject=2">
+                                    <span class="menu-action-icon vd_red vd_bd-red" data-original-title="Reject" data-toggle="tooltip" data-placement="bottom">
+                                        <i class="fa fa-times"></i>
+                                    </span>                                                                                                                   
+								</a>	
+                                </div>                                
+                            </div>
+                        </div> 
+                     </li>
+					{% endfor %}
+               {% else %}
+                   <strong>There are no profiles present.</strong>
+			   {% endif %}
+               </div>
+               <div class="closing text-center" style="">
+               		<a href="#">See All Requests <i class="fa fa-angle-double-right"></i></a>
+               </div>                                                                       
+           </div>                              
+        </div> <!-- child-menu -->                      
+      </div>   <!-- vd_mega-menu-content --> 
+    </li>
+    <li id="top-menu-2" class="one-icon mega-li"> 
+      <a href="#" class="mega-link" data-action="click-trigger">
+    	<span class="mega-icon"><i class="fa fa-envelope"></i></span> 
+		<span class="badge vd_bg-red">0</span>        
+      </a>
+      <div class="vd_mega-menu-content width-xs-3 width-sm-4 width-md-5 width-lg-4 right-xs left-sm" data-action="click-target">
+        <div class="child-menu">  
+           <div class="title"> 
+           	   Messages
+              
+           </div>                 
+		   <div class="content-list content-image">
+           	   <div  data-rel="scroll">	
+               <ul class="list-wrapper pd-lr-10">
+                    <li> 
+                    		<div class="menu-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar.jpg"></div> 
+                            <div class="menu-text"> Do you play or follow any sports?
+                            	<div class="menu-info">
+                                    <span class="menu-date">12 Minutes Ago </span>                                                                         
+                                    <span class="menu-action">
+                                        <span class="menu-action-icon" data-original-title="Mark as Unread" data-toggle="tooltip" data-placement="bottom">
+                                            <i class="fa fa-eye"></i>
+                                        </span>                                                                            
+                                    </span>                                
+                            	</div>
+                            </div> 
+                    </li>
+                    <li class="warning"> 
+                    		<div class="menu-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar-2.jpg"></div>  
+                            <div class="menu-text">  Yes I do
+                            	<div class="menu-info">
+                                    <span class="menu-date">1 Hour 20 Minutes Ago </span>                                                                         
+                                    <span class="menu-action">
+                                        <span class="menu-action-icon" data-original-title="Mark as Read" data-toggle="tooltip" data-placement="bottom">
+                                            <i class="fa fa-eye-slash"></i>
+                                        </span>                                                                            
+                                    </span>                                
+                            	</div>                            
+                            </div> 
+                     </li>    
+                                                                                              
+                    
+               </ul>
+               </div>
+               <div class="closing text-center" style="">
+               		<a href="#">See All Notifications <i class="fa fa-angle-double-right"></i></a>
+               </div>                                                                       
+           </div>                              
+        </div> <!-- child-menu -->                      
+      </div>   <!-- vd_mega-menu-content --> 
+    </li>  
+    <li id="top-menu-3"  class="one-icon mega-li"> 
+      <a href="#" class="mega-link" data-action="click-trigger">
+    	<span class="mega-icon"><i class="fa fa-globe"></i></span> 
+		<span class="badge vd_bg-red">0</span>        
+      </a>
+      <div class="vd_mega-menu-content  width-xs-3 width-sm-4  center-xs-3 left-sm" data-action="click-target">
+        <div class="child-menu">  
+           <div class="title"> 
+           		Notifications 
+               <div class="vd_panel-menu">
+                     <span data-original-title="Notification Setting" data-toggle="tooltip" data-placement="bottom" class="menu">
+                        <i class="fa fa-cog"></i>
+                    </span>                                                                             
+                </div>
+           </div>                 
+		   <div class="content-list">	
+           	   <div  data-rel="scroll">	
+               <ul  class="list-wrapper pd-lr-10">
+                    <li> <a href="#"> 
+                    		<div class="menu-icon vd_blue"><i class=" fa fa-user"></i></div> 
+                            <div class="menu-text">  Change your user profile details
+                            	<div class="menu-info"><span class="menu-date">1 Hour 20 Minutes Ago</span></div>
+                            </div> 
+                    </a> </li>    
+                    <li> <a href="#"> 
+                    		<div class="menu-icon vd_red"><i class=" fa fa-cogs"></i></div> 
+                            <div class="menu-text">  Your setting is updated
+                            	<div class="menu-info"><span class="menu-date">12 Days Ago</span></div>                            
+                            </div> 
+                    </a> </li>                                                                                                               
+                    
+               </ul>
+               </div>
+               <div class="closing text-center" style="">
+               		<a href="#">See All Notifications <i class="fa fa-angle-double-right"></i></a>
+               </div>                                                                       
+           </div>                              
+        </div> <!-- child-menu -->                      
+      </div>   <!-- vd_mega-menu-content -->         
+    </li>  
+     
+    <li id="top-menu-profile" class="profile mega-li"> 
+        <a href="#" class="mega-link"  data-action="click-trigger"> 
+            <span  class="mega-image">
+                <img src="/static/vendroid_html/img/avatar/avatar.jpg" alt="example image" />               
+            </span>
+            <span class="mega-name">
+                Percy <i class="fa fa-caret-down fa-fw"></i> 
+            </span>
+        </a> 
+       
+  
+    </li>               
+       
+    <li id="top-menu-settings" class="one-big-icon hidden-xs hidden-sm mega-li" data-intro="<strong>Toggle Right Navigation </strong><br/>On smaller device such as tablet or phone you can click on the middle content to close the right or left navigation." data-step=2 data-position="left"> 
+    	<a href="#" class="mega-link"  data-action="toggle-navbar-right"> 
+           <span class="mega-icon">
+                <i class="fa fa-comments"></i> 
+            </span>        
+			<span class="badge vd_bg-red">0</span>               
+        </a>              
+    </li>
+	</ul>
+<!-- Head menu search form ends -->                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- container --> 
+      </div>
+      <!-- vd_primary-menu-wrapper --> 
+
+  </header>
+  <!-- Header Ends --> 
+<div class="content">
+  <div class="container">
+    <div class="vd_navbar vd_nav-width vd_navbar-tabs-profile vd_navbar-left vd_navbar-style-2 background-1 ">
+	<div class="navbar-tabs-menu clearfix">
+			<span class="expand-menu" data-action="expand-navbar-tabs-menu">
+            	<span class="menu-icon menu-icon-left">
+            		<i class="fa fa-ellipsis-h"></i>
+                    <span class="badge vd_bg-red">
+                        20
+                    </span>                    
+                </span>
+            	<span class="menu-icon menu-icon-right">
+            		<i class="fa fa-ellipsis-h"></i>
+                    <span class="badge vd_bg-red">
+                        20
+                    </span>                    
+                </span>                
+            </span>
+            <div class="menu-container">
+            	<div class="vd_mega-menu-wrapper">
+                	<div class="vd_mega-menu">
+        				<ul class="mega-ul">
+	<li class="profile mega-li" id="side-nav-profile"> 
+        <a data-action="click-trigger" href="#" class="mega-link"> 
+
+            <span class="mega-image"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar.jpg"></span>               
+            <span class="mega-name">
+            	<span class="append-word vd_grey">Welcome,</span><br/>
+                Percy<span class="child-menu-icon"><i class="fa fa-caret-down fa-fw"></i></span> 
+            </span>
+        </a> 
+        
+  
+    </li> 
+        
+</ul>                        	
+                    </div>                
+                </div>
+            </div>                                                   
+    </div>
+	<div class="navbar-menu clearfix">
+        <div class="vd_panel-menu hidden-xs">
+            <span data-original-title="Expand All" data-toggle="tooltip" data-placement="bottom" data-action="expand-all" class="menu">
+                <i class="fa fa-sort-amount-asc"></i>
+            </span>                   
+        </div>
+    	<h3 class="menu-title hide-nav-medium hide-nav-small">Features</h3>
+        <div class="vd_menu">
+        	 <ul>
+   
+ 	<li>
+    	<a href="#">
+        	<span class="menu-icon"><i class="fa fa-envelope"></i></span> 
+            <span class="menu-text">Email</span>  
+            <span class="menu-badge"><span class="badge vd_bg-red">0</span></span>
+       	</a> 
+    </li>                   
+</ul>
+<!-- Head menu search form ends -->         </div>             
+    </div>
+    <div class="navbar-spacing clearfix">
+    </div>
+    <div class="vd_menu vd_navbar-bottom-widget">
+        <ul>
+            <li>
+                <a href="/pg_upload">
+                    <span class="menu-icon"><i class="fa fa-sign-out"></i></span>          
+                    <span class="menu-text">Upload</span>             
+                </a>
+                
+            </li>
+            <li>
+                <a href="/">
+                    <span class="menu-icon"><i class="fa fa-sign-out"></i></span>          
+                    <span class="menu-text">Logout</span>             
+                </a>
+                
+            </li>
+        </ul>
+    </div>     
+</div>    <div class="vd_navbar vd_nav-width vd_navbar-chat vd_bg-black-80 vd_navbar-right   ">
+	<div class="navbar-tabs-menu clearfix">
+			<span class="expand-menu" data-action="expand-navbar-tabs-menu">
+            	<span class="menu-icon menu-icon-left">
+            		<i class="fa fa-ellipsis-h"></i>
+                    <span class="badge vd_bg-red">
+                        20
+                    </span>                    
+                </span>
+            	<span class="menu-icon menu-icon-right">
+            		<i class="fa fa-ellipsis-h"></i>
+                    <span class="badge vd_bg-red">
+                        20
+                    </span>                    
+                </span>                
+            </span>  
+            <div class="menu-container">               
+        		 <div class="navbar-search-wrapper">
+    <div class="navbar-search vd_bg-black-30">
+        <span class="append-icon"><i class="fa fa-search"></i></span>
+        <input type="text" placeholder="Search" class="vd_menu-search-text no-bg no-bd vd_white width-70" name="search">
+        
+    </div>
+</div>  
+            </div>        
+                                                 
+    </div>
+	<div class="navbar-menu clearfix">
+    	<div class="content-list content-image content-chat">
+            <ul class="list-wrapper no-bd-btm pd-lr-10">
+                <li class="group-heading vd_bg-black-20">FAVORITE</li>
+                <li>  
+                    <a href="#"> 
+                            <div class="menu-icon"><img src="/static/vendroid_html/img/avatar/avatar.jpg" alt="example image"></div> 
+                            <div class="menu-text"> TMan
+                                <div class="menu-info">
+                                    <span class="menu-date">Administrator </span>                                                         
+                                </div>
+                            </div>
+                            <div class="menu-badge"><span class="badge status vd_bg-green">&nbsp;</span></div> 
+                    </a>
+                </li>
+                <li>  
+                    <a href="#"> 
+                            <div class="menu-icon"><img src="/static/vendroid_html/img/avatar/avatar-2.jpg" alt="example image"></div> 
+                            <div class="menu-text">Sam
+                                <div class="menu-info">
+                                    <span class="menu-date">Designer </span>                                                         
+                                </div>
+                            </div>
+                            <div class="menu-badge"><span class="badge status vd_bg-grey">&nbsp;</span></div> 
+                    </a>
+                </li>
+                
+                <li class="group-heading vd_bg-black-20">FRIENDS</li>                                                                                                                                 
+                <li>  
+                    <a href="#"> 
+                            <div class="menu-icon"><img src="/static/vendroid_html/img/avatar/avatar-4.jpg" alt="example image"></div> 
+                            <div class="menu-text">Karabo
+                                <div class="menu-info">
+                                    <span class="menu-date">Developer </span>                                                         
+                                </div>
+                            </div>
+                            <div class="menu-badge"><span class="badge status vd_bg-grey">&nbsp;</span></div> 
+                    </a>
+                </li> 
+                <li>  
+                    <a href="#"> 
+                            <div class="menu-icon"><img src="/static/vendroid_html/img/avatar/avatar-5.jpg" alt="example image"></div> 
+                            <div class="menu-text">Andrew
+                                <div class="menu-info">
+                                    <span class="menu-date">Dancer</span>                                                         
+                                </div>
+                            </div>
+                            <div class="menu-badge"><span class="vd_grey font-sm"><i class="fa fa-mobile"></i></span></div> 
+                    </a>
+                </li> 
+            </ul>
+        </div>
+
+            
+    </div>
+    <div class="navbar-spacing clearfix">
+    </div>
+</div>    
+    <!-- Middle Content Start -->
+    
+    <div class="vd_content-wrapper">
+      <div class="vd_container">
+        <div class="vd_content clearfix">
+          <div class="vd_head-section clearfix">
+            <div class="vd_panel-header">
+              <ul class="breadcrumb">
+                <li><a href="#">Home</a> </li>
+                
+              </ul>
+              <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5  data-position="left">
+          <div data-action="boxedtofull" data-original-title="Change from boxed to full layout" data-toggle="tooltip" data-placement="bottom" class="boxedtofull-button menu"> <i class="fa fa-expand"></i> </div>
+    
+</div>
+ 
+            </div>
+          </div>
+          <!-- vd_head-section -->
+          
+          <div class="vd_title-section clearfix">
+            <div class="vd_panel-header">
+              <h1><a><span style="font-family: Lobster; font-size: 25px; color:#ebebeb">Realtime
+              <span style="font-size: 25px; font-weight:bold; color:#C4DA64">Chat System</span></span></a></h1>
+              <span style="font-size: 10px; color:#ebebeb">Connect, collaborate and share</span>
+              </div>
+          </div>
+          <!-- vd_title-section -->
+          
+          
+          <div class="vd_content-section clearfix">
+            <p>Plain text, I'll decide what to add here.</p>
+            <pre class="prettyprint pd-20">
+Integer scelerisque, eros interdum suscipit rhoncus, mauris felis eleifend libero, a adipiscing arcu sapien eu nisi. Proin vehicula lacus non lacus lobortis ultricies. Nulla dui metus, viverra in sodales a, rutrum sed metus. Cras blandit vehicula ligula et fringilla. Suspendisse convallis rutrum arcu nec rutrum. Pellentesque sed felis ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum et sem eu eros fringilla bibendum quis non quam. Nunc tempor sodales tempus.
+
+Pellentesque tempor tellus eget pellentesque. usce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus
+
+Integer scelerisque, eros interdum suscipit rhoncus, mauris felis eleifend libero, a adipiscing arcu sapien eu nisi. Proin vehicula lacus non lacus lobortis ultricies. Nulla dui metus, viverra in sodales a, rutrum sed metus. Cras blandit vehicula ligula et fringilla. Suspendisse convallis rutrum arcu nec rutrum. Pellentesque sed felis ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum et sem eu eros fringilla bibendum quis non quam. Nunc tempor sodales tempus.
+
+Pellentesque tempor tellus eget pellentesque. usce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus
+
+
+Integer scelerisque, eros interdum suscipit rhoncus, mauris felis eleifend libero, a adipiscing arcu sapien eu nisi. Proin vehicula lacus non lacus lobortis ultricies. Nulla dui metus, viverra in sodales a, rutrum sed metus. Cras blandit vehicula ligula et fringilla. Suspendisse convallis rutrum arcu nec rutrum. Pellentesque sed felis ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum et sem eu eros fringilla bibendum quis non quam. Nunc tempor sodales tempus.
+
+Pellentesque tempor tellus eget pellentesque. usce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus
+
+Integer scelerisque, eros interdum suscipit rhoncus, mauris felis eleifend libero, a adipiscing arcu sapien eu nisi. Proin vehicula lacus non lacus lobortis ultricies. Nulla dui metus, viverra in sodales a, rutrum sed metus. Cras blandit vehicula ligula et fringilla. Suspendisse convallis rutrum arcu nec rutrum. Pellentesque sed felis ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum et sem eu eros fringilla bibendum quis non quam. Nunc tempor sodales tempus.
+
+Pellentesque tempor tellus eget pellentesque. usce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus
+
+Integer scelerisque, eros interdum suscipit rhoncus, mauris felis eleifend libero, a adipiscing arcu sapien eu nisi. Proin vehicula lacus non lacus lobortis ultricies. Nulla dui metus, viverra in sodales a, rutrum sed metus. Cras blandit vehicula ligula et fringilla. Suspendisse convallis rutrum arcu nec rutrum. Pellentesque sed felis ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum et sem eu eros fringilla bibendum quis non quam. Nunc tempor sodales tempus.
+
+Pellentesque tempor tellus eget pellentesque. usce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus           </pre>
+          </div>          
+          <!-- .vd_content-section --> 
+          
+        </div>
+        <!-- .vd_content --> 
+      </div>
+      <!-- .vd_container --> 
+    </div>
+    <!-- .vd_content-wrapper --> 
+    
+    <!-- Middle Content End --> 
+    
+  </div>
+  <!-- .container --> 
+</div>
+<!-- .content -->
+
+
+
+<!-- Footer Start -->
+  <footer class="footer-1"  id="footer">      
+    <div class="vd_bottom ">
+        <div class="container">
+            <div class="row">
+              <div class=" col-xs-12">
+                <div class="copyright">
+                  	All Rights Reserved 
+                </div>
+              </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </div>
+  </footer>
+<!-- Footer END -->
+  <div class="vd_chat-menu hidden-xs">
+      <div class="vd_mega-menu-wrapper">
+          <div class="vd_mega-menu">
+             <ul class="mega-ul">
+    
+    <li class="one-big-icon mega-li mgl-10"> 
+      <a href="#" class="mega-link" data-action="click-trigger">
+    	<span class="mega-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar.jpg"></span> 
+		<span class="badge vd_bg-red">0</span>        
+      </a>
+      <div class="vd_mega-menu-content  open-top width-xs-4 width-md-5 width-lg-4 center-xs-4" data-action="click-target">
+        <div class="child-menu">  
+           <div class="title"> 
+           	   Baarabile <i>(online)</i>
+               <div class="vd_panel-menu">
+                     <div  data-rel="tooltip"  data-original-title="Make a Call" class="menu entypo-icon smaller-font">
+                        <i class="icon-phone"></i>
+                    </div>               
+                     <div  data-rel="tooltip"  data-original-title="Video Call" class="menu">
+                        <i class="fa fa-video-camera"></i>
+                    </div>               
+                     <div  data-rel="tooltip"  data-original-title="Message Setting" class="menu smaller-font entypo-icon">
+                        <i class="icon-cog"></i>
+                    </div>   
+                     <div data-rel="tooltip"  data-original-title="Close" class="menu entypo-icon">
+                        <i class="icon-cross"></i>
+                    </div>                                                                                                 
+                </div>
+           </div>                 
+		   <div class="content-list content-image content-menu">
+           	<div data-rel="scroll">	
+			{% if chats_msg %}
+
+               <ul class="list-wrapper pd-lr-10">
+			        {% for msg in chats_msg %}
+                    <li> <a href="#"> 
+                    		<div class="menu-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar.jpg"></div> 
+                            <div class="menu-text"> {{ msg.message }}
+                            	<div class="menu-info">
+                                    <span class="menu-date">12 Minutes Ago </span>                                                                                                        
+                            	</div>
+                            </div> 
+                    </a> </li>
+					{% endfor %}
+               </ul>
+               {% else %}
+                   <strong>There are no messages present.</strong>
+			   {% endif %}
+
+               </div>
+               <div class="closing chat-area">
+               	   <div class="chat-box">
+						<form class="navbar-form navbar-right" action="." method='POST'  autocomplete="on">
+							{% csrf_token %}
+							<input type="text" name="pg_chat-message" placeholder="chat here.." />
+						</form>
+                   </div>
+                   <div class="vd_panel-menu">
+                         <div  data-rel="tooltip"  data-original-title="Insert Picture" class="menu">
+                            <i class="icon-camera"></i>
+                        </div>               
+                         <div  data-rel="tooltip"  data-original-title="Emoticons" class="menu">
+                            <i class="fa fa-smile-o"></i>
+                        </div>                                                                                  
+                    </div>
+               </div>                                                                       
+           </div>                              
+        </div> <!-- child-menu -->                      
+      </div>   <!-- vd_mega-menu-content --> 
+    </li>  
+    <li class="one-big-icon mega-li mgl-10"> 
+      <a href="#" class="mega-link" data-action="click-trigger">
+    	<span class="mega-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar-10.jpg"></span> 
+		<span class="badge vd_bg-red">0</span>        
+      </a>
+      <div class="vd_mega-menu-content  open-top width-xs-4 width-md-5 width-lg-4 center-xs-4" data-action="click-target">
+        <div class="child-menu">  
+           <div class="title"> 
+           	   Neo <i>(online)</i>
+               <div class="vd_panel-menu">
+                     <div  data-rel="tooltip"  data-original-title="Make a Call" class="menu entypo-icon smaller-font">
+                        <i class="icon-phone"></i>
+                    </div>               
+                     <div  data-rel="tooltip"  data-original-title="Video Call" class="menu">
+                        <i class="fa fa-video-camera"></i>
+                    </div>               
+                     <div  data-rel="tooltip"  data-original-title="Message Setting" class="menu smaller-font entypo-icon">
+                        <i class="icon-cog"></i>
+                    </div>   
+                     <div data-rel="tooltip"  data-original-title="Close" class="menu entypo-icon">
+                        <i class="icon-cross"></i>
+                    </div>                                                                                                 
+                </div>
+           </div>                 
+		   <div class="content-list content-image content-menu">	
+           <div   data-rel="scroll">
+               <ul class="list-wrapper pd-lr-10" >
+                    <li> <a href="/static/vendroid_html/#"> 
+                    		<div class="menu-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar.jpg"></div> 
+                            <div class="menu-text"> How was school ?
+                            	<div class="menu-info">
+                                    <span class="menu-date">1 Minute Ago </span>                                                                                                        
+                            	</div>
+                            </div> 
+                    </a> </li>
+                    <li class="align-right"> <a href="#"> 
+                    		<div class="menu-icon"><img alt="example image" src="/static/vendroid_html/img/avatar/avatar-2.jpg"></div>  
+                            <div class="menu-text">  Not bad just OK !
+                            	<div class="menu-info">
+                                    <span class="menu-date">1 Hour 20 Minutes Ago </span>                                                                         
+                              
+                            	</div>                            
+                            </div> 
+                    </a> </li>    
+                    
+               </ul>
+               </div>
+               <div class="closing chat-area">
+               	   <div class="chat-box">
+                   	<input type="text" placeholder="chat here.." />
+                   </div>
+                   <div class="vd_panel-menu">
+                         <div  data-rel="tooltip"  data-original-title="Insert Picture" class="menu">
+                            <i class="icon-camera"></i>
+                        </div>               
+                         <div  data-rel="tooltip"  data-original-title="Emoticons" class="menu">
+                            <i class="fa fa-smile-o"></i>
+                        </div>                                                                                  
+                    </div>
+               </div>                                                                       
+           </div>                              
+        </div> <!-- child-menu -->                      
+      </div>   <!-- vd_mega-menu-content -->         
+    </li>  
+     
+    <li class="profile mega-li pdlr-15 bordered"> 
+        <a class="mega-link" href="#"  data-action="click-trigger"> 
+            <span class="menu-name">
+                <i class="fa fa-comments append-icon"></i> Chat
+            </span>
+        </a> 
+      <div class="vd_mega-menu-content  width-xs-3  center-xs-3 open-top" data-action="click-target">
+        <div class="child-menu"> 
+        	<div class="content-list  content-image">
+            <div data-rel="scroll">
+			    {% if profiles %}
+                <ul class="list-wrapper pd-lr-10">
+				    {% for profile in profiles %}
+                    <li>  
+                        <a href="?invitee=2"> 
+                                <div class="menu-icon"><img src="/static/vendroid_html/img/avatar/avatar.jpg" alt="example image"></div> 
+                                <div class="menu-text">{{ profile.firstname }}
+	                                <div class="menu-info">
+                                    	<span class="menu-date">Unknown </span>                                                         
+                            		</div>
+                                </div>
+                                <div class="menu-badge"><span class="badge status vd_bg-green">&nbsp;</span></div> 
+                        </a>
+                    </li>
+					{% endfor %}
+                </ul>
+               {% else %}
+                   <strong>There are no profiles present.</strong>
+			   {% endif %}
+                </div>
+            </div> 
+        </div> 
+      </div>     
+  
+    </li>  
+    <li class="profile border-left mega-li"> 
+        <a class="mega-link pd-10" href="javascript:void(0);" data-action="chat-close"> 
+            <span class="mega-icon">
+                <i class="fa fa-sign-out"></i>
+            </span>
+        </a> 
+    </li>                      
+</ul>
+<!-- Head menu search form ends -->  
+          </div>   
+      </div>      
+  </div>
+
+</div>
+
+<script type="text/javascript" src="/static/vendroid_html/js/jquery.js"></script> 
+
+<script type="text/javascript" src="/static/vendroid_html/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src='plugins/jquery-ui/jquery-ui.custom.min.js'></script>
+<script type="text/javascript" src="/static/vendroid_html/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<script type="text/javascript" src="/static/vendroid_html/js/caroufredsel.js"></script> 
+<script type="text/javascript" src="/static/vendroid_html/js/plugins.js"></script>
+
+<script type="text/javascript" src="/static/vendroid_html/plugins/breakpoints/breakpoints.js"></script>
+<script type="text/javascript" src="/static/vendroid_html/plugins/dataTables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/vendroid_html/plugins/prettyPhoto-plugin/js/jquery.prettyPhoto.js"></script> 
+
+<script type="text/javascript" src="/static/vendroid_html/plugins/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/static/vendroid_html/plugins/tagsInput/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="/static/vendroid_html/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="/static/vendroid_html/plugins/blockUI/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/static/vendroid_html/plugins/pnotify/js/jquery.pnotify.min.js"></script>
+
+<script type="text/javascript" src="/static/vendroid_html/js/theme.js"></script>
+<script type="text/javascript" src="/static/vendroid_html/custom/custom.js"></script>
+ 
+<!-- Specific Page Scripts Put Here -->
+<script type="text/javascript" src="/static/vendroid_html/plugins/google-code-prettify/prettify.js"></script>
+<script type="text/javascript" >
+	"use strict";
+	jQuery(document).ready(function($){prettyPrint();});
+</script>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script> 
+
+</body>
+</html>
