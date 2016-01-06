@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block head_extra %}
+  <link href="/static/css/auth.css" rel="stylesheet" media="screen">
+  <style type="text/css">
+  .alert {
+    width: auto;
+  }
+  </style>
+{% endblock head_extra %}
+{% block header %}
+    <div class="jumbotron">
+      <div class="container">
+        
+      </div>
+    </div>
+{% endblock header %}
+{% block slide %}
+<div class="col-md-8">
+  <div id="wrapper">
+    <div id="body">
+      <!-- BEGIN content -->
+        <div id="content">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock slide %}
+{% block login %}
+<form class="navbar-form navbar-right" action="." method='POST'  autocomplete="on">{% csrf_token %}
+		{{ login_form.username }}
+		{{ login_form.password }}
+        <button type="submit" class="btn btn-success"> Login </button>
+	
+</form>
+{% endblock %}
+{% block content %}
+       
+        <form method='POST' action='.'> {% csrf_token %}
+            <div class="form-row"> 
+                {{ form.username }}  
+            </div>
+            <div class="form-row">
+                {{ form.email }}
+            </div>
+            <div class="form-row">  
+                {{ form.password }}
+            </div>
+            <div class="form-row"> 
+                {{ form.confirm_password }}
+            </div>
+           
+            <input type='submit' value='Create Account' class='btn btn-success btn-block'>         
+        </form>
+{% endblock %}

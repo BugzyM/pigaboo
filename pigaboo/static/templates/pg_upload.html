@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head_extra %}
+  <link href="/static/css/auth.css" rel="stylesheet" media="screen">
+  <style type="text/css">
+  .alert {
+    width: auto;
+  }
+  </style>
+{% endblock head_extra %}
+{% block login %}
+<form class="navbar-form navbar-right" action="." method='POST'  autocomplete="on">{% csrf_token %}
+		{{ upload_form }}
+        <button type="submit" class="btn btn-success"> Login </button>
+</form>
+{% endblock %}
+{% block content %}
+<p align="center"><img src="/static/img/info.png"></p>
+	<h4 style="font-family: Poiret One; font-size: 20px; text-align: center">
+        Capture and Share the World's Moments
+        Instagram is a fast, beautiful and fun way to share your life with friends and family.
+        Capture and Share the World's Moments
+        Instagram is a fast, beautiful and fun way to share your life with friends and family.</br></br>
+    </h4>
+    <a href="/static/templates/user_signup.html"><input type='submit' value='Sign Up' class='btn btn-success btn-block'>
+{% endblock %}

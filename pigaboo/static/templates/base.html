@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   
+    <title>Chat</title>
+
+    
+    </head>
+  <body>
+    <!-- Header with company name and login fields -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/" style="font-family: Lobster; font-size: 35px; color:#000000">
+            Chat<span style="font-size: 45px; font-weight:bold; color:#000000">Matrix</span></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          {% block login %} {% endblock %}
+        </div>
+       </div>
+      </nav>
+    <!--/. include 'navbar.html' for menu items  -->
+    {% block navbar %} {% endblock %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    {% block header %} {% endblock header %}
+    <!-- Display messages to user -->
+    <div class="container">
+      <div class='row'>
+        <div class='col-sm-6 col-sm-offset-3' style='text-align: center'>
+
+            {% for message in messages %}
+             
+            <div class="alert alert-{{ message.tags }}">  
+              <a href="#" class="pull-right" onclick="$(this).closest('div').fadeOut(); return false;">×</a>
+                {{ message }}
+            </div>
+           
+          
+           
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- Slideshow container with user registration form -->
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        {% block slide %} {% endblock slide %}
+          <!-- User Registration block -->
+          <div class="col-md-4">
+              {% block content %}
+              {% endblock %}
+          </div>
+        </div>
+      <hr>
+    </div> <!-- /container -->
+
+  </body>
+</html>
