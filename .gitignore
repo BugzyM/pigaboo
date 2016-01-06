@@ -55,3 +55,25 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Vagrant
+.vagrant
+
+# PyCharm
+# http://www.jetbrains.com/pycharm/webhelp/project.html
+.idea
+.iml
+
+# Dev
+local_settings.py
+node_modules
+vendors
+app.min.js
+/.project
+/.pydevproject
+/cacerts
+/celerybeat-schedule
+/celery
+/docs/_build
+/documentation
+/.settings/
