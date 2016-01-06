@@ -4,11 +4,11 @@ from django.contrib.auth.models import Permission, User, check_password
 from django.contrib.auth.backends import ModelBackend
 from django.conf import settings
 
-class EmailBackend(ModelBackend):
 
+class EmailBackend(ModelBackend):
     def authenticate(self, username=None, password=None, **kwargs):
         if '@' in username:
-            _kwargs = { 'email': username }
+            _kwargs = {'email': username}
 
         try:
             user = User.objects.get(**_kwargs)
